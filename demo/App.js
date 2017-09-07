@@ -1,8 +1,6 @@
 import React from 'react'
-import Component from '../src'
+import ReactIndividualCharacterInputBoxes from '../src/ReactIndividualCharacterInputBoxes'
 
-const App = () => (
-  <Component>Test</Component>
-)
+const App = () => <ReactIndividualCharacterInputBoxes amount={5} />
 
 export default App

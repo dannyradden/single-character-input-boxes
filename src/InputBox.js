@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
-import PropTypes from 'prop-types'
 
-class InputBoxes extends Component {
+class InputBox extends Component {
   constructor (props) {
     super(props)
     this.state = { value: '' }
@@ -18,4 +17,4 @@ class InputBoxes extends Component {
   }
 }
 
-export default InputBoxes
+export default InputBox
