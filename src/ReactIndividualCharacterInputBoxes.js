@@ -9,7 +9,7 @@ class ReactIndividualCharacterInputBoxes extends Component {
     let items = []
 
     for (var i = 0; i < amount; i++) {
-      items.push(<InputBox className='indent' key={i} />)
+      items.push(<InputBox key={i} />)
     }
 
     return <div>{items}</div>
