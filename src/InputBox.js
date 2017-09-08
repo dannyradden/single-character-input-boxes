@@ -5,23 +5,20 @@ class InputBox extends Component {
   constructor (props) {
     super(props)
     this.state = { value: '' }
-
-    this.handleChange = this.handleChange.bind(this)
   }
 
-  handleChange (event) {
-    this.setState({ value: event.target.value })
-  }
+  // handleChange (event) {
+  //   this.setState({ value: event.target.value }) && this.props.handleChange(this.state.value)
+  // }
 
   render () {
-    return (
-      <input type='text' value={this.state.value} onChange={this.handleChange} maxLength='1' key={this.props.key} />
-    )
+    return <input type='text' onChange={this.props.handleInputChange} maxLength='1' name={this.props.name} />
   }
 }
 
 InputBox.propTypes = {
-  key: PropTypes.number.isRequired
+  name: PropTypes.string.isRequired,
+  handleInputChange: function noop () {}
 }
 
 export default InputBox
