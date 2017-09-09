@@ -10,6 +10,7 @@ const Wrapper = styled.div`
   width: 50%;
   padding: 10px;
   text-align: center;
+  font-family: -apple-system, system-ui, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial sans-serif;
 `
 
 class ReactIndividualCharacterInputBoxes extends Component {
@@ -30,6 +31,7 @@ class ReactIndividualCharacterInputBoxes extends Component {
 
     return (
       <Wrapper>
+        <div>THIS IS A THING</div>
         <div>{items}</div>
         <div>{this.state.characterArray}</div>
       </Wrapper>
