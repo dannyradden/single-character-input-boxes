@@ -7,10 +7,6 @@ class InputBox extends Component {
     this.state = { value: '' }
   }
 
-  // handleChange (event) {
-  //   this.setState({ value: event.target.value }) && this.props.handleChange(this.state.value)
-  // }
-
   render () {
     return <input type='text' onChange={this.props.handleInputChange} maxLength='1' name={this.props.name} />
   }

@@ -1,7 +1,16 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
+import styled from 'styled-components'
 
 import InputBox from './InputBox'
+
+const Wrapper = styled.div`
+  margin: auto;
+  margin-top: 100px;
+  width: 50%;
+  padding: 10px;
+  text-align: center;
+`
 
 class ReactIndividualCharacterInputBoxes extends Component {
   constructor (props) {
@@ -20,10 +29,10 @@ class ReactIndividualCharacterInputBoxes extends Component {
     }
 
     return (
-      <div>
+      <Wrapper>
         <div>{items}</div>
         <div>{this.state.characterArray}</div>
-      </div>
+      </Wrapper>
     )
   }
 
