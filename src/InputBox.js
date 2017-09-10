@@ -21,7 +21,16 @@ class InputBox extends Component {
   }
 
   render () {
-    return <Input type='text' onChange={this.props.handleInputChange} maxLength='1' name={this.props.name} />
+    return (
+      <Input
+        type='text'
+        onChange={this.props.handleInputChange}
+        maxLength='1'
+        name={this.props.name}
+        ref={1}
+        innerRef={1}
+      />
+    )
   }
 }
 

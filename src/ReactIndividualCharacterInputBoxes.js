@@ -26,7 +26,7 @@ class ReactIndividualCharacterInputBoxes extends Component {
     let items = []
 
     for (var i = 0; i < amount; i++) {
-      items.push(<InputBox key={i.toString()} handleInputChange={this.handleInputChange} name={i.toString()} />)
+      items.push(<InputBox key={i.toString()} handleInputChange={this.handleInputChange} name={i.toString()} ref={i} />)
     }
 
     return (
@@ -42,6 +42,9 @@ class ReactIndividualCharacterInputBoxes extends Component {
     let stateCopy = this.state.characterArray
     stateCopy[Number(event.target.name)] = event.target.value
     this.setState({ characterArray: stateCopy })
+    if (Number(event.target.name) !== this.props.amount - 1) {
+      this.refs[Number(event.target.name) + 1].refs[1].refs[1].focus()
+    }
   }
 }
 
