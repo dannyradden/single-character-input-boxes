@@ -12,7 +12,7 @@ yarn && yarn start
 
 ## ToDo
 
-Add ability to restrict letters, numbers, capitalization and symbols
+Add ability to restrict letters, numbers, capitalization and symbols using regex prop
 Limit component updates
 
 ## License

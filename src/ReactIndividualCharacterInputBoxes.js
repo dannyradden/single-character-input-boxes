@@ -45,6 +45,29 @@ class ReactIndividualCharacterInputBoxes extends Component {
     )
   }
 
+  handleKeyDown (event) {
+    event.preventDefault()
+    if (event.keyCode > 47 && event.keyCode < 91) {
+      if (event.key.match(RegExp(/^[a-zA-Z0-9]+$/))) {
+        event.target.value = event.key
+        this.focusNextChar(event.target)
+      }
+      this.setCharacterArray(event)
+    } else if (event.key === 'Backspace') {
+      if (event.target.value === '') {
+        this.refs[Number(event.target.name) - 1].refs[1].refs[1].value = ''
+        this.focusPrevChar(event.target)
+      } else {
+        event.target.value = ''
+      }
+      this.setCharacterArray(event)
+    } else if (event.key === 'ArrowLeft') {
+      this.focusPrevChar(event.target)
+    } else if (event.key === 'ArrowRight') {
+      this.focusNextChar(event.target)
+    }
+  }
+
   handleFocus (event) {
     var el = event.target
     setTimeout(function () {
@@ -52,26 +75,15 @@ class ReactIndividualCharacterInputBoxes extends Component {
     }, 0)
   }
 
-  handleKeyDown (event) {
-    event.preventDefault()
-    if (event.keyCode > 47 && event.keyCode < 91) {
-      event.target.value = event.key
-      this.setCharacterArray(event)
-      if (Number(event.target.name) !== this.props.amount - 1) {
-        this.refs[Number(event.target.name) + 1].refs[1].refs[1].focus()
-      }
-    } else if (event.key === 'Backspace') {
-      if (Number(event.target.name) !== 0 && event.target.value === '') {
-        this.refs[Number(event.target.name) - 1].refs[1].refs[1].value = ''
-        this.refs[Number(event.target.name) - 1].refs[1].refs[1].focus()
-      } else {
-        event.target.value = ''
-      }
-      this.setCharacterArray(event)
-    } else if (Number(event.target.name) !== 0 && event.key === 'ArrowLeft') {
-      this.refs[Number(event.target.name) - 1].refs[1].refs[1].focus()
-    } else if (Number(event.target.name) !== this.props.amount - 1 && event.key === 'ArrowRight') {
-      this.refs[Number(event.target.name) + 1].refs[1].refs[1].focus()
+  focusPrevChar (target) {
+    if (Number(target.name) !== 0) {
+      this.refs[Number(target.name) - 1].refs[1].refs[1].focus()
+    }
+  }
+
+  focusNextChar (target) {
+    if (Number(target.name) !== this.props.amount - 1) {
+      this.refs[Number(target.name) + 1].refs[1].refs[1].focus()
     }
   }
 
