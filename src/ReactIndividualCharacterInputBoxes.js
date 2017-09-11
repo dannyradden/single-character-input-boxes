@@ -41,7 +41,6 @@ class ReactIndividualCharacterInputBoxes extends Component {
     return (
       <Wrapper>
         <div>{items}</div>
-        <div>{this.state.characterArray}</div>
       </Wrapper>
     )
   }
@@ -80,11 +79,13 @@ class ReactIndividualCharacterInputBoxes extends Component {
     let stateCopy = this.state.characterArray
     stateCopy[Number(event.target.name)] = event.target.value
     this.setState({ characterArray: stateCopy })
+    this.props.handleFinalString(this.state.characterArray.join(''))
   }
 }
 
 ReactIndividualCharacterInputBoxes.propTypes = {
-  amount: PropTypes.number.isRequired
+  amount: PropTypes.number.isRequired,
+  handleFinalString: PropTypes.func.isRequired
 }
 
 export default ReactIndividualCharacterInputBoxes

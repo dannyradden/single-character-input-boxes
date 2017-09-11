@@ -15,13 +15,21 @@ const Wrapper = styled.div`
 class App extends Component {
   constructor (props) {
     super(props)
-    this.state = { amount: 5 }
+    this.state = {
+      amount: 5,
+      finalString: ''
+    }
 
     this.handleChange = this.handleChange.bind(this)
+    this.handleFinalString = this.handleFinalString.bind(this)
   }
 
   handleChange (event) {
     this.setState({ amount: Number(event.target.value) })
+  }
+
+  handleFinalString (string) {
+    this.setState({ finalString: string })
   }
 
   render () {
@@ -31,7 +39,8 @@ class App extends Component {
           <p>How many boxes do you want?</p>
           <input type='number' onChange={this.handleChange} />
         </Wrapper>
-        <ReactIndividualCharacterInputBoxes amount={this.state.amount} />
+        <ReactIndividualCharacterInputBoxes amount={this.state.amount} handleFinalString={this.handleFinalString} />
+        <Wrapper>{this.state.finalString}</Wrapper>
       </div>
     )
   }
