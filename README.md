@@ -15,6 +15,8 @@ Add ability to restrict letters, numbers, capitalization and symbols using regex
 
 Limit component updates
 
+Make readme way less sucky
+
 ## License
 MIT © [Danny Radden](https://github.com/dannyradden)
 
