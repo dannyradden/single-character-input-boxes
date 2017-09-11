@@ -23,7 +23,7 @@ class ReactIndividualCharacterInputBoxes extends Component {
   }
 
   render () {
-    const amount = this.props.amount
+    const amount = typeof this.props.amount === 'undefined' ? 5 : this.props.amount
     let items = []
 
     for (var i = 0; i < amount; i++) {
@@ -99,7 +99,7 @@ class ReactIndividualCharacterInputBoxes extends Component {
 }
 
 ReactIndividualCharacterInputBoxes.propTypes = {
-  amount: PropTypes.number.isRequired,
+  amount: PropTypes.number,
   handleFinalString: PropTypes.func.isRequired
 }
 
