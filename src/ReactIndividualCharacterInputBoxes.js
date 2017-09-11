@@ -18,7 +18,6 @@ class ReactIndividualCharacterInputBoxes extends Component {
     super(props)
     this.state = { characterArray: Array(props.amount) }
 
-    this.handleInputChange = this.handleInputChange.bind(this)
     this.handleKeyDown = this.handleKeyDown.bind(this)
     this.handleFocus = this.handleFocus.bind(this)
   }
@@ -31,7 +30,6 @@ class ReactIndividualCharacterInputBoxes extends Component {
       items.push(
         <InputBox
           key={i.toString()}
-          handleInputChange={this.handleInputChange}
           handleKeyDown={this.handleKeyDown}
           handleFocus={this.handleFocus}
           name={i.toString()}
@@ -64,6 +62,12 @@ class ReactIndividualCharacterInputBoxes extends Component {
   }
 
   handleKeyDown (event) {
+    if (event.keyCode > 48 && event.keyCode < 90) {
+      this.setStateOfArray(event)
+      if (Number(event.target.name) !== this.props.amount - 1) {
+        this.refs[Number(event.target.name) + 1].refs[1].refs[1].focus()
+      }
+    }
     if (Number(event.target.name) !== 0 && event.key === 'ArrowLeft') {
       this.refs[Number(event.target.name) - 1].refs[1].refs[1].focus()
     } else if (Number(event.target.name) !== this.props.amount - 1 && event.key === 'ArrowRight') {

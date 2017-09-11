@@ -19,7 +19,6 @@ class InputBox extends Component {
     return (
       <Input
         type='text'
-        onChange={this.props.handleInputChange}
         onKeyDown={this.props.handleKeyDown}
         onFocus={this.props.handleFocus}
         maxLength='1'
@@ -33,7 +32,6 @@ class InputBox extends Component {
 
 InputBox.propTypes = {
   name: PropTypes.string.isRequired,
-  handleInputChange: function noop () {},
   handleKeyDown: function noop () {},
   handleFocus: function noop () {}
 }
