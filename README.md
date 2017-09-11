@@ -1,18 +1,18 @@
-# single-character-input-boxes
+# react-individual-character-input-boxes
 
 ## Why did I make this?
 
-## Getting Started
+Henry told me to :neutral_face:
 
-```shell
-git clone https://github.com/dannyradden/single-character-input-boxes
-cd single-character-input-boxes
-yarn && yarn start
-```
+## How To Use
+Two props are required with usage.
+1.  amount: a number that sets the number of input boxes.
+2.  handleFinalString: a callback function that handles the string output of the module.
 
 ## ToDo
 
 Add ability to restrict letters, numbers, capitalization and symbols using regex prop
+
 Limit component updates
 
 ## License

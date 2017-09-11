@@ -1,5 +1,5 @@
 {
-  "name": "single-character-input-boxes",
+  "name": "react-individual-character-input-boxes",
   "version": "1.0.0",
   "description": "Simple single character input boxes.",
   "main": "dist/index.js",
