@@ -1,15 +1,15 @@
 {
   "name": "react-individual-character-input-boxes",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Simple single character input boxes.",
-  "main": "dist/src/ReactIndividualCharacterInputBoxes.js",
+  "main": "dist/ReactIndividualCharacterInputBoxes.js",
   "repository": "https://github.com/dannyradden/single-character-input-boxes",
   "author": "Danny Radden",
   "license": "MIT",
   "scripts": {
     "start": "webpack-dev-server demo/",
     "build": "NODE_ENV=production webpack -p",
-    "prepublish": "babel src/ReactIndividualCharacterInputBoxes.js -d dist"
+    "prepublish": "babel ./src --out-dir dist"
   },
   "dependencies": {
     "prop-types": "^15.5.10",
