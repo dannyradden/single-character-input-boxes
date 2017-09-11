@@ -54,7 +54,7 @@ class ReactIndividualCharacterInputBoxes extends Component {
       }
       this.setModuleOutput(event)
     } else if (event.key === 'Backspace') {
-      if (event.target.value === '') {
+      if (event.target.value === '' && Number(event.target.name) !== 0) {
         this.refs[Number(event.target.name) - 1].refs[1].refs[1].value = ''
         this.focusPrevChar(event.target)
       } else {
@@ -89,6 +89,9 @@ class ReactIndividualCharacterInputBoxes extends Component {
 
   setModuleOutput (event) {
     let stateCopy = this.state.characterArray
+    for (var i = 0; i < this.props.amount; i++) {
+      stateCopy[i] = this.refs[i].refs[1].refs[1].value
+    }
     stateCopy[Number(event.target.name)] = event.target.value
     this.setState({ characterArray: stateCopy })
     this.props.handleFinalString(this.state.characterArray.join(''))
