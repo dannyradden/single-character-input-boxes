@@ -10,6 +10,11 @@ cd single-character-input-boxes
 yarn && yarn start
 ```
 
+## ToDo
+
+Add ability to restrict letters, numbers, capitalization and symbols
+Limit component updates
+
 ## License
 MIT © [Danny Radden](https://github.com/dannyradden)
 

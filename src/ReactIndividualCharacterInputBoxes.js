@@ -40,7 +40,6 @@ class ReactIndividualCharacterInputBoxes extends Component {
 
     return (
       <Wrapper>
-        <div>THIS IS A THING</div>
         <div>{items}</div>
         <div>{this.state.characterArray}</div>
       </Wrapper>
@@ -54,28 +53,30 @@ class ReactIndividualCharacterInputBoxes extends Component {
     }, 0)
   }
 
-  handleInputChange (event) {
-    this.setStateOfArray(event)
-    if (Number(event.target.name) !== this.props.amount - 1 && event.nativeEvent.inputType === 'insertText') {
-      this.refs[Number(event.target.name) + 1].refs[1].refs[1].focus()
-    }
-  }
-
   handleKeyDown (event) {
-    if (event.keyCode > 48 && event.keyCode < 90) {
-      this.setStateOfArray(event)
+    event.preventDefault()
+    if (event.keyCode > 47 && event.keyCode < 91) {
+      event.target.value = event.key
+      this.setCharacterArray(event)
       if (Number(event.target.name) !== this.props.amount - 1) {
         this.refs[Number(event.target.name) + 1].refs[1].refs[1].focus()
       }
-    }
-    if (Number(event.target.name) !== 0 && event.key === 'ArrowLeft') {
+    } else if (event.key === 'Backspace') {
+      if (Number(event.target.name) !== 0 && event.target.value === '') {
+        this.refs[Number(event.target.name) - 1].refs[1].refs[1].value = ''
+        this.refs[Number(event.target.name) - 1].refs[1].refs[1].focus()
+      } else {
+        event.target.value = ''
+      }
+      this.setCharacterArray(event)
+    } else if (Number(event.target.name) !== 0 && event.key === 'ArrowLeft') {
       this.refs[Number(event.target.name) - 1].refs[1].refs[1].focus()
     } else if (Number(event.target.name) !== this.props.amount - 1 && event.key === 'ArrowRight') {
       this.refs[Number(event.target.name) + 1].refs[1].refs[1].focus()
     }
   }
 
-  setStateOfArray (event) {
+  setCharacterArray (event) {
     let stateCopy = this.state.characterArray
     stateCopy[Number(event.target.name)] = event.target.value
     this.setState({ characterArray: stateCopy })
