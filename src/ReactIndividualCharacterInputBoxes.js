@@ -42,7 +42,7 @@ class ReactIndividualCharacterInputBoxes extends Component {
     let stateCopy = this.state.characterArray
     stateCopy[Number(event.target.name)] = event.target.value
     this.setState({ characterArray: stateCopy })
-    if (Number(event.target.name) !== this.props.amount - 1) {
+    if (Number(event.target.name) !== this.props.amount - 1 && event.nativeEvent.inputType === 'insertText') {
       this.refs[Number(event.target.name) + 1].refs[1].refs[1].focus()
     }
   }
