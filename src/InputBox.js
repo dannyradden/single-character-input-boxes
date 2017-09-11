@@ -15,16 +15,13 @@ const Input = styled.input`
 `
 
 class InputBox extends Component {
-  constructor (props) {
-    super(props)
-    this.state = { value: '' }
-  }
-
   render () {
     return (
       <Input
         type='text'
         onChange={this.props.handleInputChange}
+        onKeyDown={this.props.handleKeyDown}
+        onFocus={this.props.handleFocus}
         maxLength='1'
         name={this.props.name}
         ref={1}
@@ -36,7 +33,9 @@ class InputBox extends Component {
 
 InputBox.propTypes = {
   name: PropTypes.string.isRequired,
-  handleInputChange: function noop () {}
+  handleInputChange: function noop () {},
+  handleKeyDown: function noop () {},
+  handleFocus: function noop () {}
 }
 
 export default InputBox

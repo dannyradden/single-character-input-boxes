@@ -19,6 +19,8 @@ class ReactIndividualCharacterInputBoxes extends Component {
     this.state = { characterArray: Array(props.amount) }
 
     this.handleInputChange = this.handleInputChange.bind(this)
+    this.handleKeyDown = this.handleKeyDown.bind(this)
+    this.handleFocus = this.handleFocus.bind(this)
   }
 
   render () {
@@ -26,7 +28,16 @@ class ReactIndividualCharacterInputBoxes extends Component {
     let items = []
 
     for (var i = 0; i < amount; i++) {
-      items.push(<InputBox key={i.toString()} handleInputChange={this.handleInputChange} name={i.toString()} ref={i} />)
+      items.push(
+        <InputBox
+          key={i.toString()}
+          handleInputChange={this.handleInputChange}
+          handleKeyDown={this.handleKeyDown}
+          handleFocus={this.handleFocus}
+          name={i.toString()}
+          ref={i}
+        />
+      )
     }
 
     return (
@@ -38,13 +49,32 @@ class ReactIndividualCharacterInputBoxes extends Component {
     )
   }
 
+  handleFocus (event) {
+    var el = event.target
+    setTimeout(function () {
+      el.select()
+    }, 0)
+  }
+
   handleInputChange (event) {
-    let stateCopy = this.state.characterArray
-    stateCopy[Number(event.target.name)] = event.target.value
-    this.setState({ characterArray: stateCopy })
+    this.setStateOfArray(event)
     if (Number(event.target.name) !== this.props.amount - 1 && event.nativeEvent.inputType === 'insertText') {
       this.refs[Number(event.target.name) + 1].refs[1].refs[1].focus()
     }
+  }
+
+  handleKeyDown (event) {
+    if (Number(event.target.name) !== 0 && event.key === 'ArrowLeft') {
+      this.refs[Number(event.target.name) - 1].refs[1].refs[1].focus()
+    } else if (Number(event.target.name) !== this.props.amount - 1 && event.key === 'ArrowRight') {
+      this.refs[Number(event.target.name) + 1].refs[1].refs[1].focus()
+    }
+  }
+
+  setStateOfArray (event) {
+    let stateCopy = this.state.characterArray
+    stateCopy[Number(event.target.name)] = event.target.value
+    this.setState({ characterArray: stateCopy })
   }
 }
 
