@@ -1,21 +1,35 @@
 # react-individual-character-input-boxes
 
-## Why did I make this?
+React Individual Character Input Boxes (RICIBs) are individual inputs that are separate from eachother but functinaly act similar to a single regular input box. Motivation came from Apples similar input boxes used for their two-factor authorization:
+ ![apple input boxes](readMeMedia/icloud-2-factor.png "Apples individual input boxes")
 
-Henry told me to :neutral_face:
+## Highlights
+
+
+
+## Installation
+`$ npm install react-individual-character-input-boxes`
 
 ## How To Use
-Two props are available with usage.
+```js
+import RICIBs from 'react-individual-character-input-boxes';
+```
+
+Three props are available with usage.
 1.  amount: a number that sets the number of input boxes. (default is 5)
-2.  handleFinalString: a callback function that handles the string output of the module. (required)
+2.  handleOutputString: a callback function that handles the string output of the module. (required)
+3.  inputRegExp: a regular expression that tells the component which characters to allow as inputs. (default is `/^[a-zA-Z0-9]$/` which is only letters and numbers)
 
 ## ToDo
-
-Add ability to restrict letters, numbers, capitalization and symbols using regex prop
-
 Limit component updates
 
-Make readme way less sucky
+add auto capitalize ability
+
+Make readme less sucky
+
+add TravisCI
+
+add an example to readMe
 
 ## License
 MIT © [Danny Radden](https://github.com/dannyradden)

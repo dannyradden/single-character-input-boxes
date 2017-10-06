@@ -1,6 +1,6 @@
 {
   "name": "react-individual-character-input-boxes",
-  "version": "0.1.5",
+  "version": "0.2.0",
   "description": "Simple single character input boxes.",
   "main": "dist/ReactIndividualCharacterInputBoxes.js",
   "repository": "https://github.com/dannyradden/single-character-input-boxes",
@@ -11,6 +11,7 @@
     "build": "NODE_ENV=production webpack -p",
     "prepublish": "babel ./src --out-dir dist"
   },
+  "keywords": ["react", "character", "individual", "single", "InputBox"],
   "dependencies": {
     "prop-types": "^15.5.10",
     "react": "^15.6.1",

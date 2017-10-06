@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import ReactIndividualCharacterInputBoxes from '../src/ReactIndividualCharacterInputBoxes'
+import RICIBs from '../src/ReactIndividualCharacterInputBoxes'
 
 import styled from 'styled-components'
 
@@ -9,7 +9,8 @@ const Wrapper = styled.div`
   width: 50%;
   padding: 10px;
   text-align: center;
-  font-family: -apple-system, system-ui, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial sans-serif;
+  font-family: -apple-system, system-ui, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue',
+    Arial sans-serif;
 `
 
 class App extends Component {
@@ -17,19 +18,19 @@ class App extends Component {
     super(props)
     this.state = {
       amount: 5,
-      finalString: ''
+      outputString: ''
     }
 
     this.handleChange = this.handleChange.bind(this)
-    this.handleFinalString = this.handleFinalString.bind(this)
+    this.handleOutputString = this.handleOutputString.bind(this)
   }
 
   handleChange (event) {
     this.setState({ amount: Number(event.target.value) })
   }
 
-  handleFinalString (string) {
-    this.setState({ finalString: string })
+  handleOutputString (string) {
+    this.setState({ outputString: string })
   }
 
   render () {
@@ -39,8 +40,8 @@ class App extends Component {
           <p>How many boxes do you want?</p>
           <input type='number' onChange={this.handleChange} />
         </Wrapper>
-        <ReactIndividualCharacterInputBoxes amount={this.state.amount} handleFinalString={this.handleFinalString} />
-        <Wrapper>{this.state.finalString}</Wrapper>
+        <RICIBs amount={this.state.amount} handleOutputString={this.handleOutputString} />
+        <Wrapper>{this.state.outputString}</Wrapper>
       </div>
     )
   }

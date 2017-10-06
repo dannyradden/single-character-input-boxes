@@ -10,7 +10,8 @@ const Wrapper = styled.div`
   width: 50%;
   padding: 10px;
   text-align: center;
-  font-family: -apple-system, system-ui, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial sans-serif;
+  font-family: -apple-system, system-ui, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue',
+    Arial sans-serif;
 `
 
 class ReactIndividualCharacterInputBoxes extends Component {
@@ -20,18 +21,19 @@ class ReactIndividualCharacterInputBoxes extends Component {
 
     this.handleKeyDown = this.handleKeyDown.bind(this)
     this.handleFocus = this.handleFocus.bind(this)
+    this.handleChange = this.handleChange.bind(this)
   }
 
   render () {
-    const amount = typeof this.props.amount === 'undefined' ? 5 : this.props.amount
     let items = []
 
-    for (var i = 0; i < amount; i++) {
+    for (var i = 0; i < this.props.amount; i++) {
       items.push(
         <InputBox
           key={i.toString()}
           handleKeyDown={this.handleKeyDown}
           handleFocus={this.handleFocus}
+          handleChange={this.handleChange}
           name={i.toString()}
           ref={i}
         />
@@ -45,15 +47,17 @@ class ReactIndividualCharacterInputBoxes extends Component {
     )
   }
 
-  handleKeyDown (event) {
-    event.preventDefault()
-    if (event.keyCode > 47 && event.keyCode < 91) {
-      if (event.key.match(RegExp(/^[a-zA-Z0-9]+$/))) {
-        event.target.value = event.key
-        this.focusNextChar(event.target)
-      }
+  handleChange (event) {
+    if (event.target.value.match(this.props.inputRegExp)) {
+      this.focusNextChar(event.target)
       this.setModuleOutput(event)
-    } else if (event.key === 'Backspace') {
+    } else {
+      event.target.value = this.state.characterArray[event.target.name]
+    }
+  }
+
+  handleKeyDown (event) {
+    if (event.key === 'Backspace') {
       if (event.target.value === '' && Number(event.target.name) !== 0) {
         this.refs[Number(event.target.name) - 1].refs[1].refs[1].value = ''
         this.focusPrevChar(event.target)
@@ -72,7 +76,7 @@ class ReactIndividualCharacterInputBoxes extends Component {
     var el = event.target
     setTimeout(function () {
       el.select()
-    }, 0)
+    }, 5)
   }
 
   focusPrevChar (target) {
@@ -94,13 +98,18 @@ class ReactIndividualCharacterInputBoxes extends Component {
     }
     stateCopy[Number(event.target.name)] = event.target.value
     this.setState({ characterArray: stateCopy })
-    this.props.handleFinalString(this.state.characterArray.join(''))
+    this.props.handleOutputString(this.state.characterArray.join(''))
   }
 }
 
+ReactIndividualCharacterInputBoxes.defaultProps = {
+  amount: 5,
+  inputRegExp: /^[a-zA-Z0-9]$/
+}
 ReactIndividualCharacterInputBoxes.propTypes = {
   amount: PropTypes.number,
-  handleFinalString: PropTypes.func.isRequired
+  inputRegExp: PropTypes.instanceOf(RegExp),
+  handleOutputString: PropTypes.func.isRequired
 }
 
 export default ReactIndividualCharacterInputBoxes
