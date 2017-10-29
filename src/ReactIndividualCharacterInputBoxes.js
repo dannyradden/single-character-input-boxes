@@ -41,6 +41,7 @@ class ReactIndividualCharacterInputBoxes extends Component {
     for (var i = 1; i < this.props.amount + 1; i++) {
       items.push(
         <InputBox
+          type={this.props.password ? 'password' : 'text'}
           key={i}
           handleKeyDown={this.handleKeyDown}
           handleFocus={this.handleFocus}
@@ -122,11 +123,13 @@ class ReactIndividualCharacterInputBoxes extends Component {
 
 ReactIndividualCharacterInputBoxes.defaultProps = {
   amount: 5,
-  inputRegExp: /^[a-zA-Z0-9]$/
+  inputRegExp: /^[a-zA-Z0-9]$/,
+  password: false
 }
 ReactIndividualCharacterInputBoxes.propTypes = {
   amount: PropTypes.number,
   inputRegExp: PropTypes.instanceOf(RegExp),
+  password: PropTypes.bool,
   handleOutputString: PropTypes.func.isRequired
 }
 

@@ -18,7 +18,7 @@ class InputBox extends Component {
   render () {
     return (
       <Input
-        type='text'
+        type={this.props.type}
         onKeyDown={this.props.handleKeyDown}
         onChange={this.props.handleChange}
         onFocus={this.props.handleFocus}
@@ -32,6 +32,7 @@ class InputBox extends Component {
 
 InputBox.propTypes = {
   name: PropTypes.string.isRequired,
+  type: PropTypes.string,
   handleKeyDown: PropTypes.func,
   handleFocus: PropTypes.func,
   handleChange: PropTypes.func,
