@@ -22,58 +22,70 @@ class ReactIndividualCharacterInputBoxes extends Component {
     this.handleKeyDown = this.handleKeyDown.bind(this)
     this.handleFocus = this.handleFocus.bind(this)
     this.handleChange = this.handleChange.bind(this)
+    this.inputElement = {}
   }
 
-  render () {
+  shouldComponentUpdate (nextProps, nextState) {
+    if (this.props !== nextProps) {
+      return true
+    }
+    return false
+  }
+
+  renderItems () {
     let items = []
 
     for (var i = 0; i < this.props.amount; i++) {
       items.push(
         <InputBox
-          key={i.toString()}
+          key={i}
           handleKeyDown={this.handleKeyDown}
           handleFocus={this.handleFocus}
           handleChange={this.handleChange}
-          name={i.toString()}
-          ref={i}
+          name={i}
+          inputRef={el => (this.inputElement[el.name] = el)}
         />
       )
     }
 
+    return items
+  }
+
+  render () {
     return (
       <Wrapper>
-        <div>{items}</div>
+        <div>{this.renderItems()}</div>
       </Wrapper>
     )
   }
 
-  handleChange (event) {
-    if (event.target.value.match(this.props.inputRegExp)) {
-      this.focusNextChar(event.target)
-      this.setModuleOutput(event)
+  handleChange ({ target }) {
+    if (target.value.match(this.props.inputRegExp)) {
+      this.focusNextChar(target)
+      this.setModuleOutput(target)
     } else {
-      event.target.value = this.state.characterArray[event.target.name]
+      target.value = this.state.characterArray[Number(target.name)]
     }
   }
 
-  handleKeyDown (event) {
-    if (event.key === 'Backspace') {
-      if (event.target.value === '' && Number(event.target.name) !== 0) {
-        this.refs[Number(event.target.name) - 1].refs[1].refs[1].value = ''
-        this.focusPrevChar(event.target)
+  handleKeyDown ({ target, key }) {
+    if (key === 'Backspace') {
+      if (target.value === '' && Number(target.name) !== 0) {
+        this.inputElement[Number(target.name) - 1].value = ''
+        this.focusPrevChar(target)
       } else {
-        event.target.value = ''
+        target.value = ''
       }
-      this.setModuleOutput(event)
-    } else if (event.key === 'ArrowLeft') {
-      this.focusPrevChar(event.target)
-    } else if (event.key === 'ArrowRight') {
-      this.focusNextChar(event.target)
+      this.setModuleOutput(target)
+    } else if (key === 'ArrowLeft') {
+      this.focusPrevChar(target)
+    } else if (key === 'ArrowRight') {
+      this.focusNextChar(target)
     }
   }
 
-  handleFocus (event) {
-    var el = event.target
+  handleFocus ({ target }) {
+    var el = target
     setTimeout(function () {
       el.select()
     }, 5)
@@ -81,22 +93,22 @@ class ReactIndividualCharacterInputBoxes extends Component {
 
   focusPrevChar (target) {
     if (Number(target.name) !== 0) {
-      this.refs[Number(target.name) - 1].refs[1].refs[1].focus()
+      this.inputElement[Number(target.name) - 1].focus()
     }
   }
 
   focusNextChar (target) {
     if (Number(target.name) !== this.props.amount - 1) {
-      this.refs[Number(target.name) + 1].refs[1].refs[1].focus()
+      this.inputElement[Number(target.name) + 1].focus()
     }
   }
 
-  setModuleOutput (event) {
+  setModuleOutput (target) {
     let stateCopy = this.state.characterArray
     for (var i = 0; i < this.props.amount; i++) {
-      stateCopy[i] = this.refs[i].refs[1].refs[1].value
+      stateCopy[i] = this.inputElement[i].value
     }
-    stateCopy[Number(event.target.name)] = event.target.value
+    stateCopy[Number(target.name)] = target.value
     this.setState({ characterArray: stateCopy })
     this.props.handleOutputString(this.state.characterArray.join(''))
   }

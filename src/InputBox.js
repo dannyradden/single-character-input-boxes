@@ -24,18 +24,18 @@ class InputBox extends Component {
         onFocus={this.props.handleFocus}
         maxLength='1'
         name={this.props.name}
-        ref={1}
-        innerRef={1}
+        innerRef={this.props.inputRef}
       />
     )
   }
 }
 
 InputBox.propTypes = {
-  name: PropTypes.string.isRequired,
+  name: PropTypes.number.isRequired,
   handleKeyDown: PropTypes.func,
   handleFocus: PropTypes.func,
-  handleChange: PropTypes.func
+  handleChange: PropTypes.func,
+  inputRef: PropTypes.func
 }
 
 export default InputBox
