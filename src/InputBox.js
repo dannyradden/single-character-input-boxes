@@ -31,7 +31,7 @@ class InputBox extends Component {
 }
 
 InputBox.propTypes = {
-  name: PropTypes.number.isRequired,
+  name: PropTypes.string.isRequired,
   handleKeyDown: PropTypes.func,
   handleFocus: PropTypes.func,
   handleChange: PropTypes.func,

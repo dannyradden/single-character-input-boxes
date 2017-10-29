@@ -22,11 +22,14 @@ class ReactIndividualCharacterInputBoxes extends Component {
     this.handleKeyDown = this.handleKeyDown.bind(this)
     this.handleFocus = this.handleFocus.bind(this)
     this.handleChange = this.handleChange.bind(this)
-    this.inputElement = {}
+    this.inputElements = {}
   }
 
   shouldComponentUpdate (nextProps, nextState) {
-    if (this.props !== nextProps) {
+    if (
+      this.props.amount !== nextProps.amount ||
+      this.props.inputRegExp !== nextProps.inputRegExp
+    ) {
       return true
     }
     return false
@@ -35,15 +38,18 @@ class ReactIndividualCharacterInputBoxes extends Component {
   renderItems () {
     let items = []
 
-    for (var i = 0; i < this.props.amount; i++) {
+    for (var i = 1; i < this.props.amount + 1; i++) {
       items.push(
         <InputBox
           key={i}
           handleKeyDown={this.handleKeyDown}
           handleFocus={this.handleFocus}
           handleChange={this.handleChange}
-          name={i}
-          inputRef={el => (this.inputElement[el.name] = el)}
+          name={'input' + i}
+          inputRef={el => {
+            if (!el) return
+            this.inputElements[el.name] = el
+          }}
         />
       )
     }
@@ -70,8 +76,8 @@ class ReactIndividualCharacterInputBoxes extends Component {
 
   handleKeyDown ({ target, key }) {
     if (key === 'Backspace') {
-      if (target.value === '' && Number(target.name) !== 0) {
-        this.inputElement[Number(target.name) - 1].value = ''
+      if (target.value === '' && target.previousElementSibling !== null) {
+        target.previousElementSibling.value = ''
         this.focusPrevChar(target)
       } else {
         target.value = ''
@@ -88,25 +94,25 @@ class ReactIndividualCharacterInputBoxes extends Component {
     var el = target
     setTimeout(function () {
       el.select()
-    }, 5)
+    }, 0)
   }
 
   focusPrevChar (target) {
-    if (Number(target.name) !== 0) {
-      this.inputElement[Number(target.name) - 1].focus()
+    if (target.previousElementSibling !== null) {
+      target.previousElementSibling.focus()
     }
   }
 
   focusNextChar (target) {
-    if (Number(target.name) !== this.props.amount - 1) {
-      this.inputElement[Number(target.name) + 1].focus()
+    if (target.nextElementSibling !== null) {
+      target.nextElementSibling.focus()
     }
   }
 
   setModuleOutput (target) {
     let stateCopy = this.state.characterArray
-    for (var i = 0; i < this.props.amount; i++) {
-      stateCopy[i] = this.inputElement[i].value
+    for (var i = 1; i < this.props.amount + 1; i++) {
+      stateCopy[i] = this.inputElements['input' + i].value
     }
     stateCopy[Number(target.name)] = target.value
     this.setState({ characterArray: stateCopy })

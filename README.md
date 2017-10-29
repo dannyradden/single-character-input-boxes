@@ -21,13 +21,9 @@ Three props are available with usage.
 3.  inputRegExp: a regular expression that tells the component which characters to allow as inputs. (default is `/^[a-zA-Z0-9]$/` which is only letters and numbers)
 
 ## ToDo
-Limit component updates
-
 add auto capitalize ability
 
-Make readme less sucky
-
-add TravisCI
+add CI
 
 add an example to readMe
 
