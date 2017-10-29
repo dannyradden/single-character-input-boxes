@@ -10,14 +10,12 @@ const Wrapper = styled.div`
   width: 50%;
   padding: 10px;
   text-align: center;
-  font-family: -apple-system, system-ui, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue',
-    Arial sans-serif;
 `
 
 class ReactIndividualCharacterInputBoxes extends Component {
   constructor (props) {
     super(props)
-    this.state = { characterArray: Array(props.amount) }
+    this.state = { characterArray: Array(props.amount).fill(null) }
 
     this.handleKeyDown = this.handleKeyDown.bind(this)
     this.handleFocus = this.handleFocus.bind(this)
@@ -71,7 +69,7 @@ class ReactIndividualCharacterInputBoxes extends Component {
       this.focusNextChar(target)
       this.setModuleOutput(target)
     } else {
-      target.value = this.state.characterArray[Number(target.name)]
+      target.value = this.state.characterArray[target.name.replace('input', '')]
     }
   }
 
@@ -123,7 +121,7 @@ class ReactIndividualCharacterInputBoxes extends Component {
 
 ReactIndividualCharacterInputBoxes.defaultProps = {
   amount: 5,
-  inputRegExp: /^[a-zA-Z0-9]$/,
+  inputRegExp: /^[0-9]$/,
   password: false
 }
 ReactIndividualCharacterInputBoxes.propTypes = {

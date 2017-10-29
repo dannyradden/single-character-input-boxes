@@ -5,13 +5,14 @@ import styled from 'styled-components'
 
 const Input = styled.input`
   justify-content: space-between;
-  width: 40px;
-  height: 40px;
+  width: 45px;
+  height: 45px;
   margin: 5px;
   border-radius: 5px;
   text-align: center;
-  font-weight: bold;
-  font-size: 22px;
+  font-size: 34px;
+  font-family: -apple-system, system-ui, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue',
+    Arial sans-serif;
 `
 
 class InputBox extends Component {

@@ -3,30 +3,44 @@
 React Individual Character Input Boxes (RICIBs) are individual inputs that are separate from each other but functionally act similar as a regular input box. Motivation came from Apples similar input boxes used for their two-factor authorization:
  ![apple input boxes](readMeMedia/icloud-2-factor.png "Apples individual input boxes")
 
-## Highlights
-
-
-
 ## Installation
-`$ npm install react-individual-character-input-boxes`
+`$ npm i --save react-individual-character-input-boxes`
 
-## How To Use/API docs
+## How To Use
+Import:
 ```js
 import RICIBs from 'react-individual-character-input-boxes';
 ```
+Example code:
+```js  
+handleOutput (string) {
+    // Do something with the string
+  }
 
-Three props are available with usage.
-1.  amount: a number that sets the number of input boxes. (default is 5)
-2.  handleOutputString: a callback function that handles the string output of the module. (required)
-3.  inputRegExp: a regular expression that tells the component which characters to allow as inputs. (default is `/^[a-zA-Z0-9]$/` which is only letters and numbers)
-4. password: a boolean that if marked true, masks the inputs (shown as asterisks or circles)
+  render () {
+    return (
+      <div>
+        <RICIBs
+          amount={5}
+          handleOutputString={this.handleOutput}
+          inputRegExp={/^[0-9]$/}
+          password
+        />
+      </div>
+    )
+  }
+  ```
+Props:
 
-## ToDo
-add auto capitalize ability
+| Prop | Type | Required | Description |
+| :--- | :--- | :---: | :--- |
+| `amount` | Number |   | sets the number of input boxes. (default is 5) |
+| `handleOutputString` | Function | ✓ | Implement it to handle the string output of the module. |
+| `inputRegExp` | RegExp |   | Tells the component which characters to allow as inputs. (default is `/^[0-9]$/` which is only numbers) |
+| `password` | Boolean |   | Masks in the input if set as true (default is false) |
 
-add CI
-
-add an example to readMe
+## Help, I cant get it to work or I want a feature!
+Please feel free to submit an issue if you are running into trouble or have an idea for additional functionality!
 
 ## License
 MIT © [Danny Radden](https://github.com/dannyradden)
