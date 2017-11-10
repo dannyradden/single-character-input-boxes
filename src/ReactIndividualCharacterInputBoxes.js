@@ -33,6 +33,13 @@ class ReactIndividualCharacterInputBoxes extends Component {
     return false
   }
 
+  componentWillReceiveProps (nextProps) {
+    if (this.props.amount !== nextProps.amount) {
+      this.setState({ characterArray: Array(nextProps.amount).fill(null) })
+      this.props.handleOutputString('')
+    }
+  }
+
   renderItems () {
     let items = []
 
