@@ -71,7 +71,7 @@ class App extends Component {
           <p>How many boxes do you want?</p>
           <input type='number' onChange={this.handleChange} />
         </Wrapper>
-        <RICIBs amount={this.state.amount} handleOutputString={this.handleOutputString} />
+        <RICIBs amount={this.state.amount} handleOutputString={this.handleOutputString} autoFocus />
         <Wrapper>{this.state.outputString}</Wrapper>
       </Container>
     )

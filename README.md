@@ -38,6 +38,7 @@ Props:
 | Prop | Type | Required | Description |
 | :--- | :--- | :---: | :--- |
 | `amount` | Number |   | sets the number of input boxes. (default is 5) |
+| `autoFocus` | Boolean |   | When true, the first input box will automatically be selected on page load. (default false) |
 | `handleOutputString` | Function | ✓ | Implement it to handle the string output of the module. |
 | `inputRegExp` | RegExp |   | Tells the component which characters to allow as inputs. (default is `/^[0-9]$/` which is only numbers) |
 | `password` | Boolean |   | Masks in the input if set as true (default is false) |

@@ -23,6 +23,12 @@ class ReactIndividualCharacterInputBoxes extends Component {
     this.inputElements = {}
   }
 
+  componentDidMount () {
+    if (this.props.autoFocus) {
+      this.inputElements['input1'].select()
+    }
+  }
+
   shouldComponentUpdate (nextProps, nextState) {
     if (
       this.props.amount !== nextProps.amount ||
@@ -128,11 +134,13 @@ class ReactIndividualCharacterInputBoxes extends Component {
 
 ReactIndividualCharacterInputBoxes.defaultProps = {
   amount: 5,
+  autoFocus: false,
   inputRegExp: /^[0-9]$/,
   password: false
 }
 ReactIndividualCharacterInputBoxes.propTypes = {
   amount: PropTypes.number,
+  autoFocus: PropTypes.bool,
   inputRegExp: PropTypes.instanceOf(RegExp),
   password: PropTypes.bool,
   handleOutputString: PropTypes.func.isRequired
