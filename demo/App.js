@@ -49,11 +49,18 @@ class App extends Component {
     super(props)
     this.state = {
       amount: 5,
-      outputString: ''
+      outputString: '',
+      regEx: RegExp('^[0-9]$')
     }
 
     this.handleChange = this.handleChange.bind(this)
     this.handleOutputString = this.handleOutputString.bind(this)
+    this.handleRegExChange = this.handleRegExChange.bind(this)
+
+  }
+
+  handleRegExChange (event) {
+    this.setState({ regEx: RegExp(event.target.value) })
   }
 
   handleChange (event) {
@@ -70,8 +77,18 @@ class App extends Component {
         <Wrapper>
           <p>How many boxes do you want?</p>
           <input type='number' onChange={this.handleChange} />
+          <br />
+          <br />
+          <div style={{'text-align': 'left', 'padding-left': '40%'}}>
+            <p>Use custom regEx</p>
+            <input type='radio' name='regexp' value='^[0-9]$' onChange={this.handleRegExChange} />/^[0-9]$/
+            <br />
+            <input type='radio' name='regexp' value='^[a-z]$' onChange={this.handleRegExChange} />/^[a-z]$/
+            <br />
+            <input type='radio' name='regexp' value='^[a-zA-Z0-9_.-]*$' onChange={this.handleRegExChange} />/^[a-zA-Z0-9_.-]*$
+          </div>
         </Wrapper>
-        <RICIBs amount={this.state.amount} handleOutputString={this.handleOutputString} autoFocus />
+        <RICIBs amount={this.state.amount} handleOutputString={this.handleOutputString} autoFocus inputRegExp={this.state.regEx} />
         <Wrapper>{this.state.outputString}</Wrapper>
       </Container>
     )
