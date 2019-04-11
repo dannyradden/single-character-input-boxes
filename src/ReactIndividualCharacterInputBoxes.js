@@ -122,13 +122,12 @@ class ReactIndividualCharacterInputBoxes extends Component {
   }
 
   setModuleOutput (target) {
-    let stateCopy = this.state.characterArray
-    for (var i = 0; i < this.props.amount; i++) {
-      stateCopy[i] = this.inputElements['input' + i].value
-    }
-    stateCopy[Number(target.name)] = target.value
-    this.setState({ characterArray: stateCopy })
-    this.props.handleOutputString(this.state.characterArray.join(''))
+    this.setState(prevState => {
+      let updatedCharacters = prevState.characterArray.map((character, number) => {
+        return this.inputElements['input' + number].value
+      })
+      return {characterArray: updatedCharacters}
+    }, () => this.props.handleOutputString(this.state.characterArray.join('')))
   }
 }
 
