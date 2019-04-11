@@ -25,7 +25,7 @@ class ReactIndividualCharacterInputBoxes extends Component {
 
   componentDidMount () {
     if (this.props.autoFocus) {
-      this.inputElements['input1'].select()
+      this.inputElements['input0'].select()
     }
   }
 
@@ -49,7 +49,7 @@ class ReactIndividualCharacterInputBoxes extends Component {
   renderItems () {
     let items = []
 
-    for (var i = 1; i < this.props.amount + 1; i++) {
+    for (var i = 0; i < this.props.amount; i++) {
       items.push(
         <InputBox
           type={this.props.password ? 'password' : 'text'}
@@ -123,7 +123,7 @@ class ReactIndividualCharacterInputBoxes extends Component {
 
   setModuleOutput (target) {
     let stateCopy = this.state.characterArray
-    for (var i = 1; i < this.props.amount + 1; i++) {
+    for (var i = 0; i < this.props.amount; i++) {
       stateCopy[i] = this.inputElements['input' + i].value
     }
     stateCopy[Number(target.name)] = target.value
