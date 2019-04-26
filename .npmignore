@@ -2,3 +2,8 @@
 demo/
 src/
 .idea/
+readMeMedia/
+.nvm/
+.eslintrc
+yarn.lock
+yarn-error.lock

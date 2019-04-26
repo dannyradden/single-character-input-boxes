@@ -1,6 +1,6 @@
 {
   "name": "react-individual-character-input-boxes",
-  "version": "0.2.7",
+  "version": "0.2.8",
   "description": "Simple single character input boxes.",
   "main": "dist/ReactIndividualCharacterInputBoxes.js",
   "repository": "https://github.com/dannyradden/single-character-input-boxes",
