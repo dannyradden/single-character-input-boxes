@@ -46,6 +46,13 @@ Props:
 ## Help, I cant get it to work or I want a feature!
 Please feel free to submit an issue if you are running into trouble or have an idea for additional functionality!
 
+## TODO
+
+* Add demo
+* Highlight selected?
+* Allow paste (onPaste) with any input selected
+* Fix mobile and IE bugs.
+
 ## License
 MIT © [Danny Radden](https://github.com/dannyradden)
 
