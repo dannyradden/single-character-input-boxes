@@ -55,5 +55,3 @@ Please feel free to submit an issue if you are running into trouble or have an i
 
 ## License
 MIT © [Danny Radden](https://github.com/dannyradden)
-
-Thanks to [Henry Kaufman](https://github.com/hcjk) for the module boilerplate!

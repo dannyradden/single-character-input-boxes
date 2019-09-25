@@ -79,7 +79,7 @@ class App extends Component {
           <input type='number' onChange={this.handleChange} />
           <br />
           <br />
-          <div style={{'text-align': 'left', 'padding-left': '40%'}}>
+          <div style={{'textAlign': 'left', 'paddingLeft': '40%'}}>
             <p>Use custom regEx</p>
             <input type='radio' name='regexp' value='^[0-9]$' onChange={this.handleRegExChange} />/^[0-9]$/
             <br />

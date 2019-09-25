@@ -25,7 +25,7 @@ class InputBox extends Component {
         onFocus={this.props.handleFocus}
         maxLength='1'
         name={this.props.name}
-        innerRef={this.props.inputRef}
+        ref={this.props.inputRef}
       />
     )
   }
