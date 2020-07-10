@@ -19,7 +19,7 @@ class InputBox extends Component {
   render () {
     return (
       <Input
-        type={this.props.type}
+        type={ this.props.type}
         onKeyDown={this.props.handleKeyDown}
         onChange={this.props.handleChange}
         onFocus={this.props.handleFocus}

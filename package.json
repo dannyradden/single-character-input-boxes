@@ -1,6 +1,6 @@
 {
   "name": "react-individual-character-input-boxes",
-  "version": "1.0.1-0",
+  "version": "1.0.2",
   "description": "Simple single character input boxes.",
   "main": "dist/ReactIndividualCharacterInputBoxes.js",
   "repository": "https://github.com/dannyradden/single-character-input-boxes",
@@ -21,29 +21,26 @@
     "InputBox"
   ],
   "peerDependencies": {
-    "react": "^16.8.0",
-    "react-dom": "^16.8.0"
+    "react": ">= 16.8.1",
+    "react-dom": ">= 16.8.1"
   },
   "devDependencies": {
-    "@babel/core": "^7.4.3",
-    "@babel/plugin-proposal-class-properties": "^7.4.0",
-    "@babel/preset-env": "^7.4.3",
-    "@babel/preset-react": "^7.0.0",
+    "@babel/cli": "^7.10.4",
+    "@babel/core": "^7.10.4",
+    "@babel/preset-env": "^7.10.4",
+    "@babel/preset-react": "^7.10.4",
     "babel-eslint": "^10.0.1",
-    "eslint": "^5.12.1",
-    "eslint-config-prettier": "^4.0.0",
-    "eslint-plugin-import": "^2.15.0",
-    "eslint-plugin-jsx-a11y": "^6.2.0",
-    "eslint-plugin-react": "^7.12.4",
-    "eslint-plugin-react-hooks": "^1.0.2",
-    "parcel-bundler": "^1.12.3",
-    "prop-types": "^15.5.10",
-    "react": "^16.9.0",
-    "react-dom": "^16.9.0",
-    "styled-components": "^4.4.0"
+    "eslint": "^7.4.0",
+    "eslint-config-prettier": "^6.11.0",
+    "eslint-plugin-import": "^2.22.0",
+    "eslint-plugin-jsx-a11y": "^6.3.1",
+    "eslint-plugin-react": "^7.20.3",
+    "parcel-bundler": "^1.12.4",
+    "prop-types": "^15.7.2",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1"
   },
   "dependencies": {
-    "@babel/cli": "^7.6.2",
     "styled-components": "^4.4.0"
   }
 }

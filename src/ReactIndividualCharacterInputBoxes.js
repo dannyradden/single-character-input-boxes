@@ -114,7 +114,7 @@ class ReactIndividualCharacterInputBoxes extends Component {
     }
   }
 
-  setModuleOutput (target) {
+  setModuleOutput () {
     this.setState(prevState => {
       let updatedCharacters = prevState.characterArray.map((character, number) => {
         return this.inputElements['input' + number].value

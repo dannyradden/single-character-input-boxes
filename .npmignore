@@ -4,6 +4,4 @@ src/
 .idea/
 readMeMedia/
 .eslintrc
-yarn.lock
-yarn-error.log
 package-lock.json
