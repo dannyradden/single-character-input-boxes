@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React from 'react'
 import PropTypes from 'prop-types'
 
 import styled from 'styled-components'
@@ -15,20 +15,19 @@ const Input = styled.input`
     Arial sans-serif;
 `
 
-class InputBox extends Component {
-  render () {
-    return (
-      <Input
-        type={ this.props.type}
-        onKeyDown={this.props.handleKeyDown}
-        onChange={this.props.handleChange}
-        onFocus={this.props.handleFocus}
-        maxLength='1'
-        name={this.props.name}
-        ref={this.props.inputRef}
-      />
-    )
-  }
+const InputBox = ({type, handleKeyDown, handleChange, handleFocus, name, inputRef}) => {
+  return (
+    <Input
+      type={ type}
+      onKeyDown={handleKeyDown}
+      onChange={handleChange}
+      onFocus={handleFocus}
+      maxLength='1'
+      name={name}
+      ref={inputRef}
+    />
+  )
+  
 }
 
 InputBox.propTypes = {
