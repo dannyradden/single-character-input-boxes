@@ -11,7 +11,8 @@
     "clear-npm-data": "rm -rf node_modules package-lock.json",
     "dev": "parcel demo/index.html",
     "lint": "eslint \"src/**/*.{js,jsx}\" --quiet",
-    "prepublishOnly": "babel ./src --out-dir dist --copy-files"
+    "prepublishOnly": "babel ./src --out-dir dist --copy-files",
+    "prod": "parcel build demo/index.html"
   },
   "keywords": [
     "react",

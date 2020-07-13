@@ -6,6 +6,9 @@
 React Individual Character Input Boxes (RICIBs) are individual inputs that are separate from each other but functionally act similar as a regular input box. Motivation came from Apples similar input boxes used for their two-factor authorization:
  ![apple input boxes](readMeMedia/icloud-2-factor.png "Apples individual input boxes")
 
+## Demo
+You can view a demo of this component [here!](http://dannyradden.com/reactinputboxes)
+
 ## Installation
 `$ npm i --save react-individual-character-input-boxes`
 
@@ -48,7 +51,6 @@ Please feel free to submit an issue if you are running into trouble or have an i
 
 ## TODO
 
-* Add demo
 * Highlight selected?
 * Allow paste (onPaste) with any input selected
 * Fix mobile and IE bugs.

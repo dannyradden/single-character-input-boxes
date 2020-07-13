@@ -44,6 +44,28 @@ const Wrapper = styled.div`
   color: white;
 `
 
+const Header = styled.div`
+  border-bottom: 1px solid rgb(235, 237, 240);
+  color: white;
+  margin: auto;
+  font-family: -apple-system, system-ui, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue',
+  Arial sans-serif;
+  padding: 10px;
+  width: 50%;
+  text-align: center;
+`
+
+const Footer = styled.div`
+  display: flex;
+  margin: auto;
+  width: 50%;
+  padding: 10px;
+  font-family: -apple-system, system-ui, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue',
+    Arial sans-serif;
+  color: white;
+  border-top: 1px solid rgb(235, 237, 240)
+`
+
 class App extends Component {
   constructor (props) {
     super(props)
@@ -74,6 +96,9 @@ class App extends Component {
   render () {
     return (
       <Container>
+        <Header>
+          <h1>React Individual Character Input Boxes Demo</h1>
+        </Header>
         <Wrapper>
           <p>How many boxes do you want?</p>
           <input type='number' onChange={this.handleChange} />
@@ -90,6 +115,11 @@ class App extends Component {
         </Wrapper>
         <RICIBs amount={this.state.amount} handleOutputString={this.handleOutputString} autoFocus inputRegExp={this.state.regEx} />
         <Wrapper>{this.state.outputString}</Wrapper>
+        <Footer>
+          ©  Danny Radden
+          <div style={{flexGrow: 1}}></div>
+          <a style={{textDecoration: "none", color: "white"}} href="https://github.com/dannyradden/single-character-input-boxes">Github</a>
+        </Footer>
       </Container>
     )
   }
