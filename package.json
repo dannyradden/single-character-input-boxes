@@ -19,7 +19,11 @@
     "character",
     "individual",
     "single",
-    "InputBox"
+    "InputBox",
+    "input",
+    "factor",
+    "authorization",
+    "boxes"
   ],
   "peerDependencies": {
     "react": ">= 16.8.1",

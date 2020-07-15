@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import RICIBs from '../src/ReactIndividualCharacterInputBoxes'
+import SCI from 'react-single-char-input'
 
 import styled, {createGlobalStyle} from 'styled-components'
 
@@ -132,6 +133,7 @@ class App extends Component {
           <RICIBs amount={this.state.amount} handleOutputString={this.handleOutputString} autoFocus inputRegExp={this.state.regEx} />
         </Wrapper>
         <Wrapper>{this.state.outputString}</Wrapper>
+        <SCI />
         <Footer>
           ©  Danny Radden
           <div style={{flexGrow: 1}}></div>
