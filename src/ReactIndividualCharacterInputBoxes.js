@@ -81,13 +81,14 @@ class ReactIndividualCharacterInputBoxes extends Component {
       this.setModuleOutput(target)
     } else if (key === 'ArrowLeft') {
       this.focusPrevChar(target)
-    } else if (key === 'ArrowRight') {
+    } else if (key === 'ArrowRight' || key === ' ') {
       this.focusNextChar(target)
     }
   }
 
   handleFocus ({ target }) {
     var el = target
+    // In most browsers .select() does not work without the added timeout.
     setTimeout(function () {
       el.select()
     }, 0)
