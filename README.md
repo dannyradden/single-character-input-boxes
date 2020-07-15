@@ -49,9 +49,12 @@ Props:
 ## Help, I cant get it to work or I want a feature!
 Please feel free to submit an issue if you are running into trouble or have an idea for additional functionality!
 
+## BUG
+I am aware that there is a bug (mostly seems to occur in Chrome) where if you type to quickly sometimes the selection will spazz out and jump between inputs. I think it is a browser bug, but if anybody has any idea how to possibly fix this let me know please!
+
 ## TODO
 
-* Highlight selected?
+* Fix possible android and iphone bugs
 * Allow paste (onPaste) with any input selected
 * Fix mobile and IE bugs.
 

@@ -1,47 +1,28 @@
 import React, { Component } from 'react'
 import RICIBs from '../src/ReactIndividualCharacterInputBoxes'
 
-import styled from 'styled-components'
+import styled, {createGlobalStyle} from 'styled-components'
 
 const Container = styled.div`
-  position: absolute;
   top: 0;
   left: 0;
-  height: 100%;
-  width: 100%;
-  /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#066dad+0,309dcf+100 */
-  background: rgb(6, 109, 173); /* Old browsers */
-  background: -moz-linear-gradient(
-    top,
-    rgba(6, 109, 173, 1) 0%,
-    rgba(48, 157, 207, 1) 100%
-  ); /* FF3.6-15 */
-  background: -webkit-linear-gradient(
-    top,
-    rgba(6, 109, 173, 1) 0%,
-    rgba(48, 157, 207, 1) 100%
-  ); /* Chrome10-25,Safari5.1-6 */
-  background: linear-gradient(
-    to bottom,
-    rgba(6, 109, 173, 1) 0%,
-    rgba(48, 157, 207, 1) 100%
-  ); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-  filter: progid:DXImageTransform.Microsoft.gradient(
-      startColorstr='#066dad',
-      endColorstr='#309dcf',
-      GradientType=0
-    ); /* IE6-9 */
+  height: 120%
+  margin: 0px auto;
+  max-width: 960px;
 `
 
 const Wrapper = styled.div`
   margin: auto;
-  margin-top: 40px;
-  width: 50%;
   padding: 10px;
   text-align: center;
   font-family: -apple-system, system-ui, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue',
     Arial sans-serif;
   color: white;
+  width: 100%;
+  text-align: center;
+  input:focus, textarea:focus, select:focus{
+    outline: none;
+  }
 `
 
 const Header = styled.div`
@@ -51,19 +32,47 @@ const Header = styled.div`
   font-family: -apple-system, system-ui, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue',
   Arial sans-serif;
   padding: 10px;
-  width: 50%;
   text-align: center;
 `
 
 const Footer = styled.div`
   display: flex;
   margin: auto;
-  width: 50%;
   padding: 10px;
   font-family: -apple-system, system-ui, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue',
     Arial sans-serif;
   color: white;
   border-top: 1px solid rgb(235, 237, 240)
+`
+const GlobalStyle = createGlobalStyle`
+  body {
+    top: 0;
+    left: 0;
+    height: 120%
+    /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#066dad+0,309dcf+100 */
+    background: rgb(6, 109, 173); /* Old browsers */
+    background: -moz-linear-gradient(
+      top,
+      rgba(6, 109, 173, 1) 0%,
+      rgba(48, 157, 207, 1) 100%
+    ); /* FF3.6-15 */
+    background: -webkit-linear-gradient(
+      top,
+      rgba(6, 109, 173, 1) 0%,
+      rgba(48, 157, 207, 1) 100%
+    ); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(
+      to bottom,
+      rgba(6, 109, 173, 1) 0%,
+      rgba(48, 157, 207, 1) 100%
+    ) fixed; /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    background-size: cover;
+    filter: progid:DXImageTransform.Microsoft.gradient(
+        startColorstr='#066dad',
+        endColorstr='#309dcf',
+        GradientType=0
+      ); /* IE6-9 */
+  }
 `
 
 class App extends Component {
@@ -96,6 +105,7 @@ class App extends Component {
   render () {
     return (
       <Container>
+        <GlobalStyle />
         <Header>
           <h1>React Individual Character Input Boxes Demo</h1>
         </Header>
@@ -104,16 +114,23 @@ class App extends Component {
           <input type='number' onChange={this.handleChange} />
           <br />
           <br />
-          <div style={{'textAlign': 'left', 'paddingLeft': '40%'}}>
+          <div>
             <p>Use custom regEx</p>
-            <input type='radio' name='regexp' value='^[0-9]$' onChange={this.handleRegExChange} />/^[0-9]$/
-            <br />
-            <input type='radio' name='regexp' value='^[a-z]$' onChange={this.handleRegExChange} />/^[a-z]$/
-            <br />
-            <input type='radio' name='regexp' value='^[a-zA-Z0-9_.-]*$' onChange={this.handleRegExChange} />/^[a-zA-Z0-9_.-]*$
+            <div style={{'textAlign': 'left', 'margin': 'auto', 'width': '160px'}}>
+              <input type='radio' name='regexp' value='^[0-9]$' onChange={this.handleRegExChange} />/^[0-9]$/
+              <br />
+              <input type='radio' name='regexp' value='^[a-z]$' onChange={this.handleRegExChange} />/^[a-z]$/
+              <br />
+              <input type='radio' name='regexp' value='^[a-zA-Z0-9_.-]*$' onChange={this.handleRegExChange} />/^[a-zA-Z0-9_.-]*$
+            </div>
           </div>
         </Wrapper>
-        <RICIBs amount={this.state.amount} handleOutputString={this.handleOutputString} autoFocus inputRegExp={this.state.regEx} />
+        <br />
+        <br />
+        <br />       
+        <Wrapper>
+          <RICIBs amount={this.state.amount} handleOutputString={this.handleOutputString} autoFocus inputRegExp={this.state.regEx} />
+        </Wrapper>
         <Wrapper>{this.state.outputString}</Wrapper>
         <Footer>
           ©  Danny Radden
