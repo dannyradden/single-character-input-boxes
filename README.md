@@ -4,7 +4,7 @@
 [![Join the chat at https://gitter.im/single-character-input-boxes/Lobby](https://badges.gitter.im/single-character-input-boxes/Lobby.svg)](https://gitter.im/single-character-input-boxes/Lobby?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
 React Individual Character Input Boxes (RICIBs) are individual inputs that are separate from each other but functionally act similar as a regular input box. Motivation came from Apples similar input boxes used for their two-factor authorization:
- ![apple input boxes](readMeMedia/icloud-2-factor.png "Apples individual input boxes")
+ ![apple input boxes](https://user-images.githubusercontent.com/23153035/87495706-486af680-c60f-11ea-9c51-04d31edeece6.png "Apples individual input boxes")
 
 ## Demo
 You can view a demo of this component [here!](https://master.d3ckxt3jpnt41p.amplifyapp.com/)
