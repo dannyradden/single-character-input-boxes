@@ -56,7 +56,6 @@ I am aware that there is a bug (mostly seems to occur in Chrome) where if you ty
 
 * Fix possible android and iphone bugs
 * Allow paste (onPaste) with any input selected
-* Fix mobile and IE bugs.
 
 ## License
 MIT © [Danny Radden](https://github.com/dannyradden)

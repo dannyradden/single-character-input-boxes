@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
-
+import fillPolyfill from './fillPolyfill'
 import InputBox from './InputBox'
 
 class ReactIndividualCharacterInputBoxes extends Component {
@@ -12,6 +12,7 @@ class ReactIndividualCharacterInputBoxes extends Component {
     this.handleFocus = this.handleFocus.bind(this)
     this.handleChange = this.handleChange.bind(this)
     this.inputElements = {}
+    fillPolyfill
   }
 
   componentDidMount () {
