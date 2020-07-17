@@ -9,10 +9,11 @@
   "scripts": {
     "clear-build-cache": "rm -rf .cache/ dist/",
     "clear-npm-data": "rm -rf node_modules package-lock.json",
-    "dev": "parcel demo/index.html",
+    "dev": "npm run clear-build-cache && parcel demo/index.html",
     "lint": "eslint \"src/**/*.{js,jsx}\" --quiet",
-    "prepublishOnly": "babel ./src --out-dir dist --copy-files",
-    "prod": "parcel build demo/index.html"
+    "prepublishOnly": "npm run clear-build-cache && babel ./src --out-dir dist --copy-files",
+    "prod-demo": "parcel build demo/index.html",
+    "publish": "npm run prepublishOnly && np"
   },
   "keywords": [
     "react",
