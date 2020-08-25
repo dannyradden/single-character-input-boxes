@@ -28,9 +28,14 @@ handleOutput (string) {
       <div>
         <RICIBs
           amount={5}
+          autoFocus
           handleOutputString={this.handleOutput}
+          inputProps={[
+            { className: "first-box" },
+            { style: { "color": "orange" } },
+            { placeholder: "_" }
+          ]}
           inputRegExp={/^[0-9]$/}
-          password
         />
       </div>
     )
@@ -43,6 +48,7 @@ Props:
 | `amount` | Number |   | sets the number of input boxes. (default is 5) |
 | `autoFocus` | Boolean |   | When true, the first input box will automatically be selected on page load. (default false) |
 | `handleOutputString` | Function | ✓ | Implement it to handle the string output of the module. |
+| `inputProps` | Array |   | Allows you to pass through properties to the input boxes. |
 | `inputRegExp` | RegExp |   | Tells the component which characters to allow as inputs. (default is `/^[0-9]$/` which is only numbers) |
 | `password` | Boolean |   | Masks in the input if set as true (default is false) |
 

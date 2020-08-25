@@ -15,10 +15,11 @@ const Input = styled.input`
     Arial sans-serif;
 `
 
-const InputBox = ({type, handleKeyDown, handleChange, handleFocus, name, inputRef}) => {
+const InputBox = ({type, handleKeyDown, handleChange, handleFocus, name, inputRef, inputProps}) => {
   return (
     <Input
-      type={ type}
+      {...inputProps}
+      type={type}
       onKeyDown={handleKeyDown}
       onChange={handleChange}
       onFocus={handleFocus}
@@ -36,7 +37,8 @@ InputBox.propTypes = {
   handleKeyDown: PropTypes.func,
   handleFocus: PropTypes.func,
   handleChange: PropTypes.func,
-  inputRef: PropTypes.func
+  inputRef: PropTypes.func,
+  inputProps: PropTypes.object
 }
 
 export default InputBox

@@ -129,7 +129,12 @@ class App extends Component {
         <br />
         <br />       
         <Wrapper>
-          <RICIBs amount={this.state.amount} handleOutputString={this.handleOutputString} inputRegExp={this.state.regEx} key={this.state.amount}/>
+          <RICIBs 
+            amount={this.state.amount} 
+            handleOutputString={this.handleOutputString} 
+            inputRegExp={this.state.regEx} 
+            key={this.state.amount}
+          />
         </Wrapper>
         <Wrapper>{this.state.outputString}</Wrapper>
         <Footer>

@@ -43,6 +43,7 @@ class ReactIndividualCharacterInputBoxes extends Component {
           handleFocus={this.handleFocus}
           handleChange={this.handleChange}
           name={'input' + i}
+          inputProps={this.props.inputProps && this.props.inputProps[i]}
           inputRef={el => {
             if (!el) return
             this.inputElements[el.name] = el
