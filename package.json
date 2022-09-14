@@ -1,6 +1,6 @@
 {
   "name": "react-individual-character-input-boxes",
-  "version": "1.1.0",
+  "version": "1.1.3",
   "description": "Simple single character input boxes.",
   "main": "dist/ReactIndividualCharacterInputBoxes.js",
   "source": "src/ReactIndividualCharacterInputBoxes.js",
@@ -12,9 +12,9 @@
     "clear-npm-data": "rm -rf node_modules package-lock.json",
     "dev": "npm run clear-build-cache && parcel demo/index.html",
     "lint": "eslint \"src/**/*.{js,jsx}\" --quiet",
-    "prepublishOnly": "npm run clear-build-cache && parcel build",
+    "prepublishOnly": "npm run clear-build-cache && babel ./src --out-dir dist --copy-files",
     "prod-demo": "parcel build demo/index.html",
-    "publish": "npm run prepublishOnly && np"
+    "release": "npm run prepublishOnly && np --no-tests"
   },
   "keywords": [
     "react",
