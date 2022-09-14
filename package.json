@@ -12,7 +12,7 @@
     "clear-npm-data": "rm -rf node_modules package-lock.json",
     "dev": "npm run clear-build-cache && parcel demo/index.html",
     "lint": "eslint \"src/**/*.{js,jsx}\" --quiet",
-    "prepublishOnly": "npm run clear-build-cache && babel ./src --out-dir dist --copy-files",
+    "prepublishOnly": "npm run clear-build-cache && parcel build",
     "prod-demo": "parcel build demo/index.html",
     "release": "npm run prepublishOnly && np --no-tests"
   },
