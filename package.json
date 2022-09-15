@@ -1,20 +1,19 @@
 {
   "name": "react-individual-character-input-boxes",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "description": "Simple single character input boxes.",
-  "main": "dist/ReactIndividualCharacterInputBoxes.js",
   "repository": "https://github.com/dannyradden/single-character-input-boxes",
   "author": "Danny Radden",
   "license": "MIT",
   "types": "./index.d.ts",
+  "main": "dist/ReactIndividualCharacterInputBoxes.js",
   "scripts": {
-    "clear-build-cache": "rm -rf .cache/ dist/",
+    "clear-build-cache": "rm -rf .parcel-cache/ dist/ demo-output/",
     "clear-npm-data": "rm -rf node_modules package-lock.json",
-    "dev": "npm run clear-build-cache && parcel demo/index.html",
-    "lint": "eslint \"src/**/*.{js,jsx}\" --quiet",
-    "prepublishOnly": "npm run clear-build-cache && babel ./src --out-dir dist --copy-files",
-    "prod-demo": "parcel build demo/index.html",
-    "publish": "npm run prepublishOnly && np"
+    "dev": "npm run clear-build-cache && parcel demo/index.html --dist-dir=demo-output/",
+    "prepublishOnly": "npm run clear-build-cache && parcel build src/ReactIndividualCharacterInputBoxes.js",
+    "prod-demo": "parcel build demo/index.html --dist-dir=demo-output/",
+    "release": "npm run prepublishOnly && np --no-tests"
   },
   "keywords": [
     "react",
@@ -32,22 +31,14 @@
     "react-dom": ">= 16.8.1"
   },
   "devDependencies": {
-    "@babel/cli": "^7.10.4",
-    "@babel/core": "^7.10.4",
-    "@babel/preset-env": "^7.10.4",
-    "@babel/preset-react": "^7.10.4",
-    "babel-eslint": "^10.0.1",
-    "eslint": "^7.4.0",
-    "eslint-config-prettier": "^6.11.0",
-    "eslint-plugin-import": "^2.22.0",
-    "eslint-plugin-jsx-a11y": "^6.3.1",
-    "eslint-plugin-react": "^7.20.3",
-    "parcel-bundler": "^1.12.4",
-    "prop-types": "^15.7.2",
-    "react": "^16.13.1",
-    "react-dom": "^16.13.1"
+    "parcel": ">=2.7.0",
+    "process": "^0.11.10",
+    "react": ">=16.13.1",
+    "react-dom": ">=16.13.1",
+    "react-is": "18.2.0"
   },
   "dependencies": {
-    "styled-components": "^4.4.0"
+    "prop-types": ">=15.7.2",
+    "styled-components": ">=4.4.0"
   }
 }

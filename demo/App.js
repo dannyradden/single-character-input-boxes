@@ -6,7 +6,7 @@ import styled, {createGlobalStyle} from 'styled-components'
 const Container = styled.div`
   top: 0;
   left: 0;
-  height: 120%
+  height: 120%;
   margin: 0px auto;
   max-width: 960px;
 `
@@ -116,7 +116,7 @@ class App extends Component {
           <br />
           <div>
             <p>Use custom regEx</p>
-            <div style={{'textAlign': 'left', 'margin': 'auto', 'width': '160px'}}>
+            <div style={{'textAlign': 'left', 'margin': 'auto', 'width': '200px'}}>
               <input type='radio' name='regexp' value='^[0-9]$' onChange={this.handleRegExChange} />/^[0-9]$/
               <br />
               <input type='radio' name='regexp' value='^[a-z]$' onChange={this.handleRegExChange} />/^[a-z]$/

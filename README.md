@@ -7,7 +7,7 @@ React Individual Character Input Boxes (RICIBs) are individual inputs that are s
  ![apple input boxes](https://user-images.githubusercontent.com/23153035/87495706-486af680-c60f-11ea-9c51-04d31edeece6.png "Apples individual input boxes")
 
 ## Demo
-You can view a demo of this component [here!](https://master.d3ckxt3jpnt41p.amplifyapp.com/)
+You can view a demo of this component [here!](https://amplify-demo.d3ckxt3jpnt41p.amplifyapp.com/)
 
 ## Installation
 `$ npm i --save react-individual-character-input-boxes`
@@ -57,11 +57,6 @@ Please feel free to submit an issue if you are running into trouble or have an i
 
 ## BUG
 I am aware that there is a bug (mostly seems to occur in Chrome) where if you type to quickly sometimes the selection will spazz out and jump between inputs. I think it is a browser bug, but if anybody has any idea how to possibly fix this let me know please!
-
-## TODO
-
-* Fix possible android and iphone bugs
-* Allow paste (onPaste) with any input selected
 
 ## License
 MIT © [Danny Radden](https://github.com/dannyradden)
