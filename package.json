@@ -6,14 +6,12 @@
   "author": "Danny Radden",
   "license": "MIT",
   "main": "dist/ReactIndividualCharacterInputBoxes.js",
-  "targets": { "main": false },
   "scripts": {
-    "clear-build-cache": "rm -rf .parcel-cache/ dist/",
+    "clear-build-cache": "rm -rf .parcel-cache/ dist/ demo-output/",
     "clear-npm-data": "rm -rf node_modules package-lock.json",
-    "dev": "npm run clear-build-cache && parcel demo/index.html",
-    "lint": "eslint \"src/**/*.{js,jsx}\" --quiet",
+    "dev": "npm run clear-build-cache && parcel demo/index.html --dist-dir=demo-output/",
     "prepublishOnly": "npm run clear-build-cache && parcel build src/ReactIndividualCharacterInputBoxes.js",
-    "prod-demo": "parcel build demo/index.html",
+    "prod-demo": "parcel build demo/index.html --dist-dir=demo-output/",
     "release": "npm run prepublishOnly && np --no-tests"
   },
   "keywords": [
