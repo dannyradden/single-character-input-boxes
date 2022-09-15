@@ -4,24 +4,25 @@ import fillPolyfill from './fillPolyfill'
 import InputBox from './InputBox'
 
 class ReactIndividualCharacterInputBoxes extends Component {
-  constructor (props) {
+  constructor(props) {
     super(props)
     this.state = { characterArray: Array(props.amount).fill(null) }
 
     this.handleKeyDown = this.handleKeyDown.bind(this)
     this.handleFocus = this.handleFocus.bind(this)
     this.handleChange = this.handleChange.bind(this)
+    this.handleOnPaste = this.handleOnPaste.bind(this)
     this.inputElements = {}
     fillPolyfill
   }
 
-  componentDidMount () {
+  componentDidMount() {
     if (this.props.autoFocus) {
       this.inputElements['input0'].select()
     }
   }
 
-  shouldComponentUpdate (nextProps) {
+  shouldComponentUpdate(nextProps) {
     if (
       this.props.amount !== nextProps.amount ||
       this.props.inputRegExp !== nextProps.inputRegExp
@@ -31,7 +32,7 @@ class ReactIndividualCharacterInputBoxes extends Component {
     return false
   }
 
-  renderItems () {
+  renderItems() {
     let items = []
 
     for (var i = 0; i < this.props.amount; i++) {
@@ -42,6 +43,7 @@ class ReactIndividualCharacterInputBoxes extends Component {
           handleKeyDown={this.handleKeyDown}
           handleFocus={this.handleFocus}
           handleChange={this.handleChange}
+          handleOnPaste={this.handleOnPaste}
           name={'input' + i}
           inputProps={this.props.inputProps && this.props.inputProps[i]}
           inputRef={el => {
@@ -55,7 +57,7 @@ class ReactIndividualCharacterInputBoxes extends Component {
     return items
   }
 
-  render () {
+  render() {
     return (
       <div>
         <div>{this.renderItems()}</div>
@@ -63,7 +65,7 @@ class ReactIndividualCharacterInputBoxes extends Component {
     )
   }
 
-  handleChange ({ target }) {
+  handleChange({ target }) {
     if (target.value.match(this.props.inputRegExp)) {
       this.focusNextChar(target)
       this.setModuleOutput(target)
@@ -72,7 +74,7 @@ class ReactIndividualCharacterInputBoxes extends Component {
     }
   }
 
-  handleKeyDown ({ target, key }) {
+  handleKeyDown({ target, key }) {
     if (key === 'Backspace') {
       if (target.value === '' && target.previousElementSibling !== null) {
         target.previousElementSibling.value = ''
@@ -88,7 +90,7 @@ class ReactIndividualCharacterInputBoxes extends Component {
     }
   }
 
-  handleFocus ({ target }) {
+  handleFocus({ target }) {
     var el = target
     // In most browsers .select() does not work without the added timeout.
     setTimeout(function () {
@@ -96,24 +98,39 @@ class ReactIndividualCharacterInputBoxes extends Component {
     }, 0)
   }
 
-  focusPrevChar (target) {
+  handleOnPaste(event) {
+    event.preventDefault()
+    const pasted = event.clipboardData.getData("text/plain")
+    let pastedArray = pasted.split("").slice(0, this.props.amount)
+    for (var i = 0; i < pastedArray.length; i++) {
+      if (pastedArray[i].match(this.props.inputRegExp)) {
+        this.inputElements['input' + i].value = pastedArray[i]
+      }
+      else break;
+    }
+    if (i <= this.props.amount - 1) this.inputElements['input' + i].focus()
+    else this.inputElements['input' + (this.props.amount - 1)].focus()
+    this.setModuleOutput()
+  }
+
+  focusPrevChar(target) {
     if (target.previousElementSibling !== null) {
       target.previousElementSibling.focus()
     }
   }
 
-  focusNextChar (target) {
+  focusNextChar(target) {
     if (target.nextElementSibling !== null) {
       target.nextElementSibling.focus()
     }
   }
 
-  setModuleOutput () {
+  setModuleOutput() {
     this.setState(prevState => {
       let updatedCharacters = prevState.characterArray.map((character, number) => {
         return this.inputElements['input' + number].value
       })
-      return {characterArray: updatedCharacters}
+      return { characterArray: updatedCharacters }
     }, () => this.props.handleOutputString(this.state.characterArray.join('')))
   }
 }

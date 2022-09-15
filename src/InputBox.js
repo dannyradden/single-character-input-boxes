@@ -15,7 +15,7 @@ const Input = styled.input`
     Arial sans-serif;
 `
 
-const InputBox = ({type, handleKeyDown, handleChange, handleFocus, name, inputRef, inputProps}) => {
+const InputBox = ({ type, handleKeyDown, handleChange, handleFocus, handleOnPaste, name, inputRef, inputProps }) => {
   return (
     <Input
       {...inputProps}
@@ -23,12 +23,13 @@ const InputBox = ({type, handleKeyDown, handleChange, handleFocus, name, inputRe
       onKeyDown={handleKeyDown}
       onChange={handleChange}
       onFocus={handleFocus}
+      onPaste={handleOnPaste}
       maxLength='1'
       name={name}
       ref={inputRef}
     />
   )
-  
+
 }
 
 InputBox.propTypes = {
@@ -36,6 +37,7 @@ InputBox.propTypes = {
   type: PropTypes.string,
   handleKeyDown: PropTypes.func,
   handleFocus: PropTypes.func,
+  handleOnPaste: PropTypes.func,
   handleChange: PropTypes.func,
   inputRef: PropTypes.func,
   inputProps: PropTypes.object
