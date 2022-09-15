@@ -5,6 +5,7 @@
   "repository": "https://github.com/dannyradden/single-character-input-boxes",
   "author": "Danny Radden",
   "license": "MIT",
+  "types": "./index.d.ts",
   "main": "dist/ReactIndividualCharacterInputBoxes.js",
   "scripts": {
     "clear-build-cache": "rm -rf .parcel-cache/ dist/ demo-output/",
