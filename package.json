@@ -6,7 +6,6 @@
   "author": "Danny Radden",
   "license": "MIT",
   "main": "dist/ReactIndividualCharacterInputBoxes.js",
-  "targets": { "main": true },
   "scripts": {
     "clear-build-cache": "rm -rf .parcel-cache/ dist/ demo-output/",
     "clear-npm-data": "rm -rf node_modules package-lock.json",
