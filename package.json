@@ -2,17 +2,17 @@
   "name": "react-individual-character-input-boxes",
   "version": "1.1.5",
   "description": "Simple single character input boxes.",
-  "main": "dist/ReactIndividualCharacterInputBoxes.js",
-  "source": "src/ReactIndividualCharacterInputBoxes.js",
   "repository": "https://github.com/dannyradden/single-character-input-boxes",
   "author": "Danny Radden",
   "license": "MIT",
+  "main": "dist/ReactIndividualCharacterInputBoxes.js",
+  "targets": { "main": false },
   "scripts": {
     "clear-build-cache": "rm -rf .parcel-cache/ dist/",
     "clear-npm-data": "rm -rf node_modules package-lock.json",
     "dev": "npm run clear-build-cache && parcel demo/index.html",
     "lint": "eslint \"src/**/*.{js,jsx}\" --quiet",
-    "prepublishOnly": "npm run clear-build-cache && parcel build",
+    "prepublishOnly": "npm run clear-build-cache && parcel build src/ReactIndividualCharacterInputBoxes.js",
     "prod-demo": "parcel build demo/index.html",
     "release": "npm run prepublishOnly && np --no-tests"
   },
@@ -32,19 +32,11 @@
     "react-dom": ">= 16.8.1"
   },
   "devDependencies": {
-    "@babel/cli": ">=7.10.4",
-    "@babel/core": ">=7.10.4",
-    "@babel/preset-env": ">=7.10.4",
-    "@babel/preset-react": ">=7.10.4",
-    "babel-eslint": ">=10.0.1",
-    "eslint": ">=7.4.0",
-    "eslint-config-prettier": ">=6.11.0",
-    "eslint-plugin-import": ">=2.22.0",
-    "eslint-plugin-jsx-a11y": ">=6.3.1",
-    "eslint-plugin-react": ">=7.20.3",
     "parcel": ">=2.7.0",
+    "process": "^0.11.10",
     "react": ">=16.13.1",
-    "react-dom": ">=16.13.1"
+    "react-dom": ">=16.13.1",
+    "react-is": "18.2.0"
   },
   "dependencies": {
     "prop-types": ">=15.7.2",
