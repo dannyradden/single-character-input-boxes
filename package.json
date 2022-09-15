@@ -7,6 +7,9 @@
   "license": "MIT",
   "types": "./index.d.ts",
   "main": "dist/ReactIndividualCharacterInputBoxes.js",
+  "targets": {
+    "types": false
+  },
   "scripts": {
     "clear-build-cache": "rm -rf .parcel-cache/ dist/ demo-output/",
     "clear-npm-data": "rm -rf node_modules package-lock.json",
