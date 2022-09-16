@@ -5,7 +5,7 @@ declare module "react-individual-character-input-boxes" {
     amount?: number;
     autoFocus?: boolean;
     handleOutputString: (string) => void;
-    inputProps?: any[];
+    inputProps?: any;
     inputRegExp?: RegExp;
     password?: boolean;
   }

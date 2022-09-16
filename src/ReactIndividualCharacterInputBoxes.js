@@ -34,6 +34,7 @@ class ReactIndividualCharacterInputBoxes extends Component {
 
   renderItems() {
     let items = []
+    let inputProps = this.props.inputProps || {}
 
     for (var i = 0; i < this.props.amount; i++) {
       items.push(
@@ -45,7 +46,7 @@ class ReactIndividualCharacterInputBoxes extends Component {
           handleChange={this.handleChange}
           handleOnPaste={this.handleOnPaste}
           name={'input' + i}
-          inputProps={this.props.inputProps && this.props.inputProps[i]}
+          inputProps={inputProps[i] || inputProps}
           inputRef={el => {
             if (!el) return
             this.inputElements[el.name] = el
