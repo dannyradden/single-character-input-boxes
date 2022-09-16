@@ -45,7 +45,7 @@ class ReactIndividualCharacterInputBoxes extends Component {
           handleChange={this.handleChange}
           handleOnPaste={this.handleOnPaste}
           name={'input' + i}
-          inputProps={this.props.inputProps && this.props.inputProps[i]}
+          inputProps={this.props.inputProps[i] || this.props.inputProps}
           inputRef={el => {
             if (!el) return
             this.inputElements[el.name] = el
