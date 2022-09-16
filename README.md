@@ -48,7 +48,7 @@ Props:
 | `amount` | Number |   | sets the number of input boxes. (default is 5) |
 | `autoFocus` | Boolean |   | When true, the first input box will automatically be selected on page load. (default false) |
 | `handleOutputString` | Function | ✓ | Implement it to handle the string output of the module. |
-| `inputProps` | Array |   | Allows you to pass through properties to the input boxes. |
+| `inputProps` | Object or Array\<Object\> |   | Allows you to pass through properties to the input boxes. With this you can customize attributes (including styles) for all of the boxes by using an Object. To customize each box individually use an array of objects where each item in the array represents a box. |
 | `inputRegExp` | RegExp |   | Tells the component which characters to allow as inputs. (default is `/^[0-9]$/` which is only numbers) |
 | `password` | Boolean |   | Masks in the input if set as true (default is false) |
 
