@@ -55,7 +55,7 @@ Props:
 Please feel free to submit an issue if you are running into trouble or have an idea for additional functionality!
 
 ## BUG
-I am aware that there is a bug (mostly seems to occur in Chrome) where if you type to quickly sometimes the selection will spazz out and jump between inputs. I think it is a browser bug, but if anybody has any idea how to possibly fix this let me know please!
+I am aware that there is a bug where if you type extremely quickly, sometimes the selection will spazz out and jump between inputs. It happens very rarely though, only when you basically spam your keyboard as fast as you can. If you have any ideas on how to fix this please let me know!
 
 ## License
 MIT © [Danny Radden](https://github.com/dannyradden)
