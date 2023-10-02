@@ -24,7 +24,7 @@ const InputBox = ({ type, handleKeyDown, handleChange, handleFocus, handleOnPast
       onChange={handleChange}
       onFocus={handleFocus}
       onPaste={handleOnPaste}
-      maxLength='1'
+      maxLength='2'
       name={name}
       ref={inputRef}
     />
